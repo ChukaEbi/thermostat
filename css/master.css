@@ -1,9 +1,10 @@
-#thermostat {
-  height: 100%;
-  width: 500px;
-  background-color: orange;
+body {
+  background-image: url(Elegant_Background-1.jpg);
+  text-align: center;
 }
 
-#tempScreen {
-  text-align: center;
+#thermostat {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255,255,255,0.4);
 }
