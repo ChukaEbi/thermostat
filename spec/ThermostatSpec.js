@@ -1,3 +1,4 @@
+
 describe("Thermostat", function() {
   var thermostat;
   beforeEach(function() {
@@ -42,5 +43,34 @@ describe("Thermostat", function() {
     }
     message = 'Cannot increase temperature any further';
     expect(function(){thermostat.increaseTemp();}).toThrow(new Error(message));
-  })
+  });
+
+  it("power saving mode is on by default", function(){
+    expect(thermostat.isPowerSavingMode).toBe(true);
+  });
+
+  it("resets the temp to 20 degrees", function(){
+    thermostat.increaseTemp();
+    thermostat.resetTemp();
+    expect(thermostat.temperature).toEqual(20);
+  });
+
+  it("should be green when less than 18 degrees", function(){
+    for(i=0;i<3;i++){
+      thermostat.decreaseTemp();
+    }
+    expect(thermostat.colour()).toEqual('green');
+  });
+
+  it("should be yellow when less than 25", function(){
+    expect(thermostat.colour()).toEqual('yellow');
+  });
+
+  it("should be red when greater than 25 degrees", function(){
+    thermostat.powerSavingModeOff();
+    for(i=0;i<5;i++){
+      thermostat.increaseTemp();
+    }
+    expect(thermostat.colour()).toEqual('red');
+  });
 });

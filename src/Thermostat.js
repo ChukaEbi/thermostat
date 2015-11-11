@@ -1,8 +1,10 @@
 function Thermostat() {
-    var DEFAULT_TEMP = 20;
+    this.LOW_ENERGY_USAGE = 18;
+    this.HIGH_ENERGY_USAGE = 25;
+    this.DEFAULT_TEMP = 20;
     this.MIN_TEMP = 10;
-    this.temperature = DEFAULT_TEMP;
-    this.isPowerSavingMode = false;
+    this.temperature = this.DEFAULT_TEMP;
+    this.isPowerSavingMode = true;
 }
 
 Thermostat.prototype.temperature = function() {
@@ -32,12 +34,28 @@ Thermostat.prototype.decreaseTemp = function(){
 
 Thermostat.prototype.powerSavingModeOn = function() {
   this.isPowerSavingMode = true;
-}
+};
 
 Thermostat.prototype.isPowerSavingMode = function() {
   return this.isPowerSavingMode;
-}
+};
 
 Thermostat.prototype.powerSavingModeOff = function() {
   this.isPowerSavingMode = false;
-}
+};
+
+Thermostat.prototype.resetTemp = function() {
+  this.temperature = this.DEFAULT_TEMP;
+};
+
+Thermostat.prototype.colour = function() {
+  if(this.temperature < this.LOW_ENERGY_USAGE){
+    return 'green';
+  }
+  else if((this.temperature > this.LOW_ENERGY_USAGE) && (this.temperature < this.HIGH_ENERGY_USAGE)){
+    return 'yellow';
+  }
+  else {
+    return 'red';
+  }
+};
