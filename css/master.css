@@ -1,0 +1,9 @@
+#thermostat {
+  height: 100%;
+  width: 500px;
+  background-color: orange;
+}
+
+#tempScreen {
+  text-align: center;
+}

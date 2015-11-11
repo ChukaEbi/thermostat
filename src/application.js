@@ -3,17 +3,17 @@ $(document).ready(function(){
   $('#display').prepend(thermostat.temperature);
   $('#increaseTemp').on('click',function(){
     thermostat.increaseTemp();
-    $('#display').replaceWith("<p id='display'>" + thermostat.temperature + "</p>");
+    $('#display').replaceWith("<span id='display'>" + thermostat.temperature + "</span>");
     console.log(thermostat.temperature);
   });
   $('#decreaseTemp').on('click',function(){
     thermostat.decreaseTemp();
-    $('#display').replaceWith("<p id='display'>" + thermostat.temperature + "</p>");
+    $('#display').replaceWith("<span id='display'>" + thermostat.temperature + "</span>");
     console.log(thermostat.temperature);
   });
   $('#resetTemp').on('click',function(){
     thermostat.resetTemp();
-    $('#display').replaceWith("<p id='display'>" + thermostat.temperature + "</p>");
+    $('#display').replaceWith("<span id='display'>" + thermostat.temperature + "</span>");
     console.log(thermostat.temperature);
   });
   $('#psmOn').on('click',function(){

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="css/master.css">
     <title>Thermostat</title>
   </head>
   <script src="jquery-2.1.4.js"></script>
   <script src="src/Thermostat.js"></script>
   <script src="src/application.js"></script>
   <body>
-    <section id="thermostat">
-      <div id='tempScreen'><p id='display'></p></div>
-      <button type="button" id="increaseTemp">Increase Temperature</button>
-      <button type="button" id="decreaseTemp">Decrease Temperature</button>
-      <button type="button" id="resetTemp">Reset Temperature</button>
-      <button type="button" id="psmOn">Power Saving Mode On</button>
-      <button type="button" id="psmOff">Power Saving Mode Off</button>
+    <div id="thermostat">
+      <div id='tempScreen'>
+        <h1> Temperature: <span id='display'></span> degrees Celcius </h1>
+      </div>
+      <div id='buttons'>
+      <button type="button" id="increaseTemp">Increase</button>
+      <button type="button" id="decreaseTemp">Decrease</button>
+      <button type="button" id="resetTemp">Reset</button>
+      <button type="button" id="psmOn">PSM On</button>
+      <button type="button" id="psmOff">PSM Off</button>
+    </div>
       <p> Power Saving Mode is <span id="psm"> on </span></p>
-    </section>
+    </div>
   </body>
 </html>
