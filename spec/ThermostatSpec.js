@@ -25,4 +25,22 @@ describe("Thermostat", function() {
     message = 'Cannot decrease temperature any further';
     expect(function(){thermostat.decreaseTemp();}).toThrow(new Error(message));
   });
+
+  it("should have a max temp of 25 degrees when power saving mode is on", function() {
+    thermostat.powerSavingModeOn();
+    for(i=0; i < 5; i++) {
+      thermostat.increaseTemp();
+    }
+    message = 'Cannot increase temperature any further';
+    expect(function(){thermostat.increaseTemp();}).toThrow(new Error(message));
+  });
+
+  it("should have a max temp of 32 degrees when power saving mode is off", function() {
+    thermostat.powerSavingModeOff();
+    for(i=0; i < 12; i++) {
+      thermostat.increaseTemp();
+    }
+    message = 'Cannot increase temperature any further';
+    expect(function(){thermostat.increaseTemp();}).toThrow(new Error(message));
+  })
 });
